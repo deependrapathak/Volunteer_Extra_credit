@@ -63,11 +63,11 @@ public class Task {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	/*@Override
+	@Override
 	public String toString() {
 		return "Task [taskId=" + taskId + ", description=" + description + ", timeframeToCompleteInDays="
 				+ timeframeToCompleteInDays + ", taskStatus=" + taskStatus + ", resourceRequired=" + resourceRequired
 				+ ", user=" + user + "]";
-	}*/
+	}
 	
 }

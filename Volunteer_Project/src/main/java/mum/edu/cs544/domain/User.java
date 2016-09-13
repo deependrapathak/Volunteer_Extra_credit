@@ -99,9 +99,9 @@ public class User {
 		this.taskOffered = taskOffered;
 	}
 
-	/*@Override
+	@Override
 	public String toString() {
 		return "User [uID=" + uID + ", name=" + name + ", email=" + email + ", password=" + password + ", address="
 				+ address.toString() + ", role=" + role + ", taskOffered=" + taskOffered + "]";
-	}*/
+	}
 }

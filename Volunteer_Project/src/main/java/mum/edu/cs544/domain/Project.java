@@ -95,10 +95,10 @@ public class Project {
 	public void setBeneficiaries(List<Beneficiary> beneficiaries) {
 		this.beneficiaries = beneficiaries;
 	}
-	/*@Override
+	@Override
 	public String toString() {
 		return "Project [projectId=" + projectId + ", projectname=" + projectname + ", description=" + description
 				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + ", projectStatus=" + projectStatus + "]";
-	}*/
+	}
 	
 }

@@ -52,9 +52,9 @@ public class Beneficiary {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	/*@Override
+	@Override
 	public String toString() {
 		return "Beneficiary [beneficiaryId=" + beneficiaryId + ", beneficiaryName=" + beneficiaryName
 				+ ", beneficiaryDescription=" + beneficiaryDescription + "]";
-	}*/
+	}
 }

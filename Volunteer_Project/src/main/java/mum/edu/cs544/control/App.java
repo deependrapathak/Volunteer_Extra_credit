@@ -56,7 +56,7 @@ public class App {
 	t2.setDescription("database mapping");
 	t2.setResourceRequired("MYSQL");
 	t2.setTaskStatus("incomplete");
-	t2.setTimeframeToCompleteInDays(0.5);
+	t2.setTimeframeToCompleteInDays(1);
 	p.setTasks(Arrays.asList(t1,t2));
 	t2.setImage(Files.readAllBytes(path));
 	
