@@ -2,17 +2,32 @@ package mum.edu.cs544.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+@Entity
 public class Project {
+	@Id
+	@GeneratedValue
 	private int projectId;
 	private String projectname;
 	private String description;
 	private String location;
 	private String startDate;
 	private String endDate;
+	@OneToMany
+	@JoinTable(name="ProjectTask",joinColumns=@JoinColumn(name="pr_ID"),inverseJoinColumns=@JoinColumn(name="ts_ID"))
 	private List<Task> tasks = new ArrayList<Task>();
+	@ManyToMany
+	@JoinTable(name="user_pr",joinColumns=@JoinColumn(name="pr_id"),inverseJoinColumns=@JoinColumn(name="us_id"))
 	private List<User> users = new ArrayList<User>();
 	private String projectStatus;
+	@ManyToMany
+	@JoinTable(name="PR_BNF",joinColumns=@JoinColumn(name="pr_id"),inverseJoinColumns=@JoinColumn(name="bf_id"))
 	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
 	public int getProjectId() {
 		return projectId;

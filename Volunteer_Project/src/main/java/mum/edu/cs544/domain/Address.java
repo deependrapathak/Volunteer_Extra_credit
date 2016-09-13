@@ -1,17 +1,24 @@
 package mum.edu.cs544.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
-	private int aI;
+	@Id
+	@GeneratedValue
+	private int aID;
 	private String street;
 	private String city;
 	private String state;
 	private String zip;
 	
-	public int getaI() {
-		return aI;
+	public int getaID() {
+		return aID;
 	}
-	public void setaI(int aI) {
-		this.aI = aI;
+	public void setaI(int aID) {
+		this.aID = aID;
 	}
 	public String getStreet() {
 		return street;
@@ -39,7 +46,7 @@ public class Address {
 	}
 	@Override
 	public String toString() {
-		return "Address [aI=" + aI + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip
+		return "Address [aI=" + aID + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip
 				+ "]";
 	}
 

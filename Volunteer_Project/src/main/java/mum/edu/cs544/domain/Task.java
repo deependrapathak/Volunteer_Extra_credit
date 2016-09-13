@@ -1,12 +1,24 @@
 package mum.edu.cs544.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Task {
+	@Id
+	@GeneratedValue
 	private int taskId;
 	private String description;
 	private double timeframeToCompleteInDays;
 	private String taskStatus;
-	byte[] image;
+	@Lob byte[] image;
 	private String resourceRequired;
+	@ManyToOne
+	@JoinColumn(name="usr_Id")
 	private User user;
 	public int getTaskId() {
 		return taskId;

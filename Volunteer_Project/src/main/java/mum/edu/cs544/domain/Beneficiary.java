@@ -3,11 +3,20 @@ package mum.edu.cs544.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+@Entity
 public class Beneficiary {
+	@Id
+	@GeneratedValue
 	private int beneficiaryId;
 	private String beneficiaryName;
 	private String beneficiaryDescription;
-	byte[] image;
+	@Lob byte[] image;
+	@ManyToMany(mappedBy="beneficiaries")
 	private List<Project> projects = new ArrayList<Project>();
 	public int getBeneficiaryId() {
 		return beneficiaryId;
