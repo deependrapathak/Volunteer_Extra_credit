@@ -3,9 +3,11 @@ package mum.edu.cs544.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,14 +23,16 @@ public class User {
 	private String name;
 	private String email;
 	private String password;
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="addressId")
 	private Address address;
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	@ManyToMany(mappedBy="users")
+	@ManyToMany(mappedBy="users",fetch=FetchType.EAGER)
+	@Basic(fetch=FetchType.EAGER)
 	private List<Project> projects = new ArrayList<Project>();
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user",fetch=FetchType.EAGER)
+	@Basic(fetch=FetchType.EAGER)
 	private List<Task> taskOffered = new ArrayList<Task>();
 
 	public int getuID() {
@@ -95,9 +99,9 @@ public class User {
 		this.taskOffered = taskOffered;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "User [uID=" + uID + ", name=" + name + ", email=" + email + ", password=" + password + ", address="
-				+ address + ", role=" + role + ", projects=" + projects + ", taskOffered=" + taskOffered + "]";
-	}
+				+ address.toString() + ", role=" + role + ", taskOffered=" + taskOffered + "]";
+	}*/
 }

@@ -1,6 +1,7 @@
 package mum.edu.cs544.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -17,7 +18,7 @@ public class Task {
 	private String taskStatus;
 	@Lob byte[] image;
 	private String resourceRequired;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="usr_Id")
 	private User user;
 	public int getTaskId() {
@@ -62,11 +63,11 @@ public class Task {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Task [taskId=" + taskId + ", description=" + description + ", timeframeToCompleteInDays="
 				+ timeframeToCompleteInDays + ", taskStatus=" + taskStatus + ", resourceRequired=" + resourceRequired
 				+ ", user=" + user + "]";
-	}
+	}*/
 	
 }

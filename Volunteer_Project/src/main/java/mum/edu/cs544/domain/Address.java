@@ -44,10 +44,10 @@ public class Address {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Address [aI=" + aID + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip
 				+ "]";
-	}
+	}*/
 
 }

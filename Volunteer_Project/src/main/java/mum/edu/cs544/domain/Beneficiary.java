@@ -3,20 +3,24 @@ package mum.edu.cs544.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 @Entity
 public class Beneficiary {
+	
 	@Id
 	@GeneratedValue
 	private int beneficiaryId;
 	private String beneficiaryName;
 	private String beneficiaryDescription;
 	@Lob byte[] image;
-	@ManyToMany(mappedBy="beneficiaries")
+	@ManyToMany(mappedBy="beneficiaries",fetch=FetchType.EAGER)
+	@Basic(fetch=FetchType.EAGER)
 	private List<Project> projects = new ArrayList<Project>();
 	public int getBeneficiaryId() {
 		return beneficiaryId;
@@ -48,5 +52,9 @@ public class Beneficiary {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
+	/*@Override
+	public String toString() {
+		return "Beneficiary [beneficiaryId=" + beneficiaryId + ", beneficiaryName=" + beneficiaryName
+				+ ", beneficiaryDescription=" + beneficiaryDescription + "]";
+	}*/
 }

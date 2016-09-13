@@ -2,7 +2,10 @@ package mum.edu.cs544.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,15 +22,18 @@ public class Project {
 	private String location;
 	private String startDate;
 	private String endDate;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="ProjectTask",joinColumns=@JoinColumn(name="pr_ID"),inverseJoinColumns=@JoinColumn(name="ts_ID"))
+	@Basic(fetch=FetchType.EAGER)
 	private List<Task> tasks = new ArrayList<Task>();
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="user_pr",joinColumns=@JoinColumn(name="pr_id"),inverseJoinColumns=@JoinColumn(name="us_id"))
+	@Basic(fetch=FetchType.EAGER)
 	private List<User> users = new ArrayList<User>();
 	private String projectStatus;
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="PR_BNF",joinColumns=@JoinColumn(name="pr_id"),inverseJoinColumns=@JoinColumn(name="bf_id"))
+	@Basic(fetch=FetchType.EAGER)
 	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
 	public int getProjectId() {
 		return projectId;
@@ -89,11 +95,10 @@ public class Project {
 	public void setBeneficiaries(List<Beneficiary> beneficiaries) {
 		this.beneficiaries = beneficiaries;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Project [projectId=" + projectId + ", projectname=" + projectname + ", description=" + description
-				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + ", tasks=" + tasks
-				+ ", users=" + users + ", projectStatus=" + projectStatus + ", beneficiaries=" + beneficiaries + "]";
-	}
+				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + ", projectStatus=" + projectStatus + "]";
+	}*/
 	
 }

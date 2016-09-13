@@ -8,9 +8,10 @@ public class Utility {
 	private static final EntityManagerFactory emf;
 	static{
 		try{
-			emf=Persistence.createEntityManagerFactory("Volunteer_db");
+			emf=Persistence.createEntityManagerFactory("volunteerdb");
 		}
 		catch(Throwable ex){
+			ex.printStackTrace();
 			throw new ExceptionInInitializerError();
 		}
 	}

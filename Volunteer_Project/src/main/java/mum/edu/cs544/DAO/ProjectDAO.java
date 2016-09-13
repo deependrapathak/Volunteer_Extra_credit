@@ -9,7 +9,6 @@ import javax.persistence.Query;
 
 import mum.edu.cs544.config.Utility;
 import mum.edu.cs544.domain.Project;
-
 public class ProjectDAO implements IProjectDAO {
 
 	public void createProject(Project project) {
@@ -33,6 +32,7 @@ public class ProjectDAO implements IProjectDAO {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Project> getAllProjects() {
 		EntityManager em = Utility.getEntityManager();
 		EntityTransaction tx = null;
